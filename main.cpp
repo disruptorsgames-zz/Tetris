@@ -1,14 +1,26 @@
 #include <iostream>
-#include <SDL2/SDL.h>
+#include <list>
 
-/*
- *  * Lesson 0: Test to make sure SDL is setup properly
- *   */
-int main(int, char**){
-    if (SDL_Init(SDL_INIT_VIDEO) != 0){
-        std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
-        return 1;
-    }
-    SDL_Quit();
-    return 0;
+#include "engine.hpp"
+
+using namespace std;
+
+void print(list<int> l)
+{
+	for(auto const &item : l)
+	{
+		cout << item << endl;
+	}
+}
+
+int main (int argc, char *args[])
+{
+	Engine e("Tetris", 100, 100, 640, 480);
+	
+	list<int> l;
+	l.push_back(0);
+	l.push_back(100);
+	print(l);
+
+	return 0;
 }
