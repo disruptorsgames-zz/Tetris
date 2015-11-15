@@ -1,32 +1,19 @@
 #ifndef PIECE_HPP
 #define PIECE_HPP
 
-enum rotationState
-{
-    START,
-    CW90,
-    CW180,
-    CW270,
-    CCW90,
-    CCW180,
-    CCW270
-};
-
-enum blockState
-{
-    FULL,
-    FREE,
-};
+#include "enums.hpp"
 
 class Piece
 {
     protected:
         int _x;
         int _y;
-        rotationState _currState; 
+        RotationState _currState; 
+        Piece(void);
         Piece(int x, int y);
         virtual void rotateFSM(void) = 0;
-        virtual blockState* getPiece(void) = 0;
+        virtual BlockState* getPiece(void) = 0;
+        virtual void loadPieceArrays(void) = 0;
 
     public:
         int getX(void);
@@ -34,5 +21,6 @@ class Piece
         void setX(int x);
         void setY(int y);
         virtual void rotate_cw(void) = 0;
+        void toString(void);
 };
 #endif
