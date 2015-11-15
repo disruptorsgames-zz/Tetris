@@ -1,7 +1,7 @@
 #include <iostream>
 #include <list>
 
-#include "engine.hpp"
+#include "headers/engine.hpp"
 
 using namespace std;
 
@@ -15,8 +15,11 @@ void print(list<int> l)
 
 int main (int argc, char *args[])
 {
-	Engine e("Tetris", 100, 100, 640, 480);
-	
+	// sdl engine
+	Engine e("Tetris", 1024, 768);
+	e.Run();
+
+	// testing lists
 	list<int> l;
 	l.push_back(0);
 	l.push_back(100);
