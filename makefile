@@ -4,8 +4,8 @@ LIB = -lSDL2
 
 .PHONY: pieces
 
-tetris: pieces main.cpp engine.cpp
-	$(CXX) main.cpp engine.cpp $(FLAGS) $(LIB) -o tetris
+tetris: pieces main.cpp engine.cpp input.cpp
+	$(CXX) main.cpp engine.cpp input.cpp $(FLAGS) $(LIB) -o tetris
 
 pieces:
 	$(MAKE) -C pieces/ all
