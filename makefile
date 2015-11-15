@@ -1,14 +1,14 @@
 CXX = g++
-FLAGS = -Wall -pedantic -std=c++11 
+FLAGS = -g -Wall -pedantic -std=c++11 
 LIB = -lSDL2
 
-.PHONY: pieces
+.PHONY: src/pieces
 
-tetris: pieces main.cpp engine.cpp input.cpp
-	$(CXX) main.cpp engine.cpp input.cpp $(FLAGS) $(LIB) -o tetris
+tetris: src/pieces src/main.cpp src/engine.cpp include/nanosvg.h
+	$(CXX) src/main.cpp src/engine.cpp  $(FLAGS) $(LIB) -o tetris
 
 pieces:
-	$(MAKE) -C pieces/ all
+	$(MAKE) -C src/pieces/ all
 
 clean:
 	-rm *.o tetris
