@@ -64,6 +64,12 @@ void Engine::Run()
 		}
 	}
 
+	// ToDo: call to GameLogic.cpp
+	// spawn pieces...
+
+	// ToDo: Graphics.cpp
+	//  load images, draw shapes...
+
 	// drawing stuff
 	/*string file = "../resources/drawing.svg";
 	cout << "loading '" << file.c_str() << "'" << endl;
