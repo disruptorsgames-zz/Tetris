@@ -11,5 +11,5 @@ pieces:
 	$(MAKE) -C pieces/ all
 
 clean:
-	-rm *.0 tetris
+	-rm *.o tetris
 	-rm pieces/*.o
