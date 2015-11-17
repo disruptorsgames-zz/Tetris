@@ -4,6 +4,7 @@
 #include "../include/nanosvg.h"
 
 #include "headers/engine.hpp"
+#include "headers/gamelogic.hpp"
 
 using namespace std;
 
@@ -43,6 +44,10 @@ void Engine::Run()
 {
 	cout << "SDL Engine run, run engine run..." << endl;
 
+	// game wrappers
+	GameLogic logic;
+	// ToDo: graphics wrapper
+
 	// event loop
 	bool quit = false;
 	while (!quit)
@@ -62,14 +67,12 @@ void Engine::Run()
 					break;
 			}
 		}
+
+		// run game logic code every loop
+		quit = (logic.Run() == -1);
 	}
 
-	// ToDo: call to GameLogic.cpp
-	// spawn pieces...
-
-	// ToDo: Graphics.cpp
-	//  load images, draw shapes...
-
+	// ToDo: put this code in the graphics wrapper
 	// drawing stuff
 	/*string file = "../resources/drawing.svg";
 	cout << "loading '" << file.c_str() << "'" << endl;

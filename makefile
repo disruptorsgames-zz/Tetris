@@ -4,8 +4,8 @@ LIB = -lSDL2
 
 .PHONY: src/pieces
 
-tetris: src/pieces src/main.cpp src/engine.cpp include/nanosvg.h
-	$(CXX) src/main.cpp src/engine.cpp  $(FLAGS) $(LIB) -o tetris
+tetris: src/pieces src/main.cpp src/engine.cpp src/gamelogic.cpp include/nanosvg.h
+	$(CXX) src/main.cpp src/engine.cpp src/gamelogic.cpp  $(FLAGS) $(LIB) -o tetris
 
 pieces:
 	$(MAKE) -C src/pieces/ all
