@@ -65,11 +65,12 @@ void Engine::Run()
 				case SDL_QUIT:
 					quit = true;
 					break;
+				default:
+					// run game logic code every loop
+					quit = (logic.Run() == -1);
+					break;
 			}
 		}
-
-		// run game logic code every loop
-		quit = (logic.Run() == -1);
 	}
 
 	// ToDo: put this code in the graphics wrapper
