@@ -1,12 +1,11 @@
+#include <iostream>
 #include <string>
+
+using namespace std;
 
 class ErrorHandling
 {
-	public:
-		ErrorHandling();
-		~ErrorHandling();
-	private:
-		std::string _name = 0;
-		std::string _error = 0;
-		virtual void error() = 0;
+	protected:
+		string name;
+		void error(string e) { cout << e << " has occurred in " << name << endl; };
 };

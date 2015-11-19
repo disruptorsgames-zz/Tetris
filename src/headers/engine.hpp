@@ -1,7 +1,9 @@
 #include <string>
 #include <SDL2/SDL.h>
 
-class Engine
+//#include "errorhandling.hpp"
+
+class Engine //: ErrorHandling
 {
 	public:
 		Engine();
@@ -14,6 +16,4 @@ class Engine
 		int Controls(SDL_Event *event);	
 		void Run();
 		void Quit();
-	private:
-		int error(std::string type);
 };

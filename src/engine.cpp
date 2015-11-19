@@ -8,15 +8,9 @@
 
 using namespace std;
 
-int Engine::error(string type)
-{
-	cout << "SDL " << type << " Error: " << SDL_GetError() << endl;
-	SDL_Quit();
-	return 1;
-}
-
 Engine::Engine()
 {
+	//this->name = "SDL Engine";
 	cout << "SDL Initializing..." << endl;
 	SDL_Init(SDL_INIT_VIDEO);
 }
@@ -27,6 +21,7 @@ Engine::Engine(string title, int w, int h, int x, int y) : Engine()
 }
 Engine::~Engine()
 {
+	//this->error();
 	cout << "SDL Quiting..." << endl;
 	SDL_DestroyRenderer(Renderer);
 	SDL_DestroyWindow(Window);
@@ -66,7 +61,6 @@ void Engine::Run()
 					quit = true;
 					break;
 				default:
-					// run game logic code every loop
 					quit = (logic.Run() == -1);
 					break;
 			}

@@ -1,13 +1,12 @@
 #include <string>
 
-class GameLogic //: public ErrorHandling
+#include "errorhandling.hpp"
+
+class GameLogic : ErrorHandling
 {
 	public:
 		GameLogic();
 		~GameLogic();
 
 		int Run();
-	private:
-		//virtual std::string _name = "Game Logic";
-		//virtual std::string _error;
 };
