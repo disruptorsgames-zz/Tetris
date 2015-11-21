@@ -16,7 +16,7 @@ void print(list<int> l)
 int main (int argc, char *args[])
 {
 	// sdl engine
-	Engine e("Tetris", 1024, 768);
+	Engine e("Tetris", 800, 600);
 	e.Run();
 
 	// testing lists

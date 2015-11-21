@@ -11,6 +11,7 @@ using namespace std;
 
 Engine::Engine()
 {
+	//this->name = "SDL Engine";
 	cout << "SDL Initializing..." << endl;
 	SDL_Init(SDL_INIT_VIDEO);
 }
@@ -22,6 +23,7 @@ Engine::Engine(string title, int w, int h, int x, int y) : Engine()
 }
 Engine::~Engine()
 {
+	//this->error();
 	cout << "SDL Quiting..." << endl;
 	SDL_DestroyRenderer(Renderer);
 	SDL_DestroyWindow(Window);
@@ -61,7 +63,6 @@ void Engine::Run()
 					quit = true;
 					break;
 				default:
-					// run game logic code every loop
 					quit = (logic.Run() == -1);
 					break;
 			}

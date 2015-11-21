@@ -1,7 +1,9 @@
 #include <string>
 #include <SDL2/SDL.h>
 
-class Engine
+//#include "errorhandling.hpp"
+
+class Engine //: ErrorHandling
 {
 	public:
 		Engine();
@@ -11,9 +13,8 @@ class Engine
 		SDL_Renderer *Renderer;
 		SDL_Window *Window;
 		SDL_GLContext Context;
-	
-		int Controls(SDL_Event *event);	
+
+		int Controls(SDL_Event *event);
 		void Run();
 		void Quit();
-	private:
 };
