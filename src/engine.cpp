@@ -1,4 +1,5 @@
 #include <iostream>
+#include <GL/glut.h>
 
 #define NANOSVG_IMPLEMENTATION
 #include "../include/nanosvg.h"
@@ -7,13 +8,6 @@
 #include "headers/gamelogic.hpp"
 
 using namespace std;
-
-int Engine::error(string type)
-{
-	cout << "SDL " << type << " Error: " << SDL_GetError() << endl;
-	SDL_Quit();
-	return 1;
-}
 
 Engine::Engine()
 {
@@ -24,6 +18,7 @@ Engine::Engine(string title, int w, int h, int x, int y) : Engine()
 {
 	Window = SDL_CreateWindow(title.c_str(), x, y, w, h, SDL_WINDOW_OPENGL);
 	Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED);
+	Context = SDL_GL_CreateContext(Window);
 }
 Engine::~Engine()
 {
@@ -72,6 +67,8 @@ void Engine::Run()
 			}
 		}
 	}
+
+	
 
 	// ToDo: put this code in the graphics wrapper
 	// drawing stuff

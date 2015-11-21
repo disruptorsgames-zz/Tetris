@@ -10,10 +10,10 @@ class Engine
 
 		SDL_Renderer *Renderer;
 		SDL_Window *Window;
+		SDL_GLContext Context;
 	
 		int Controls(SDL_Event *event);	
 		void Run();
 		void Quit();
 	private:
-		int error(std::string type);
 };
