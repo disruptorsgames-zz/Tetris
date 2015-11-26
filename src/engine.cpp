@@ -1,5 +1,6 @@
 #include <iostream>
-#include <GL/glut.h>
+
+//#include <SDL2/SDL_opengl.h>
 
 #define NANOSVG_IMPLEMENTATION
 #include "../include/nanosvg.h"
@@ -11,7 +12,7 @@ using namespace std;
 
 Engine::Engine()
 {
-	//this->name = "SDL Engine";
+	this->name = "SDL Engine";
 	cout << "SDL Initializing..." << endl;
 	SDL_Init(SDL_INIT_VIDEO);
 }
@@ -20,12 +21,16 @@ Engine::Engine(string title, int w, int h, int x, int y) : Engine()
 	Window = SDL_CreateWindow(title.c_str(), x, y, w, h, SDL_WINDOW_OPENGL);
 	Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED);
 	Context = SDL_GL_CreateContext(Window);
+	// ToDo: move this to graphics method?
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+	//Program = glCreateProgram();
 }
 Engine::~Engine()
 {
-	//this->error();
 	cout << "SDL Quiting..." << endl;
 	SDL_DestroyRenderer(Renderer);
+	SDL_GL_DeleteContext(Context);
 	SDL_DestroyWindow(Window);
 	SDL_Quit();
 }
@@ -66,10 +71,14 @@ void Engine::Run()
 					quit = (logic.Run() == -1);
 					break;
 			}
+
+			// ToDo: call graphics?
+			//glClearColor(1.0, 1.0, 1.0, 1.0);
+			//glClear(GL_COLOR_BUFFER_BIT);
+			SDL_GL_SwapWindow(Window);
+			SDL_Delay(60);
 		}
 	}
-
-	
 
 	// ToDo: put this code in the graphics wrapper
 	// drawing stuff

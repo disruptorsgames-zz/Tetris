@@ -12,7 +12,6 @@ GameLogic::GameLogic()
 
 GameLogic::~GameLogic()
 {
-	this->error("Test Error"); // testing only!
 	cout << "Game Logic Quitting..." << endl;
 }
 

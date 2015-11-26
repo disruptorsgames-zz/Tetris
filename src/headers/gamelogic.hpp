@@ -1,5 +1,3 @@
-#include <string>
-
 #include "errorhandling.hpp"
 
 class GameLogic : ErrorHandling

@@ -1,9 +1,10 @@
 #include <string>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
 
-//#include "errorhandling.hpp"
+#include "errorhandling.hpp"
 
-class Engine //: ErrorHandling
+class Engine : ErrorHandling
 {
 	public:
 		Engine();
@@ -13,6 +14,9 @@ class Engine //: ErrorHandling
 		SDL_Renderer *Renderer;
 		SDL_Window *Window;
 		SDL_GLContext Context;
+		
+		// ToDo: add to graphics library
+		GLuint Program;
 
 		int Controls(SDL_Event *event);
 		void Run();
